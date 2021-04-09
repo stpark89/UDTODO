@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Index from 'container';
+import TodoContainer from 'container/todo/TodoContainer';
+import LayOutContainer from 'container/layout/LayOutContainer';
+
+interface IUser {
+  userName: string;
+  userAge: number;
+  active: boolean;
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route path={['/', '/todo']}>
+          <LayOutContainer />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
